@@ -38,7 +38,7 @@ class Notification(Plugin):
         return notify
 
     def getNotificationImage(self, size = 'small'):
-        return 'https://raw.github.com/RuudBurger/CouchPotatoServer/master/couchpotato/static/images/notify.couch.%s.png' % size
+        return 'https://raw.github.com/nielskreijveld/CouchPotatoServer/master/couchpotato/static/images/notify.couch.%s.png' % size
 
     def notify(self, message = '', data = {}, listener = None):
         pass
