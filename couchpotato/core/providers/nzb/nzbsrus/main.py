@@ -24,12 +24,14 @@ class Nzbsrus(NZBProvider, RSS):
     def _search(self, movie, quality, results):
 
         cat_id_string = '&'.join(['c%s=1' % x for x in self.getCatId(quality.get('identifier'))])
+        title = movie['library']['titles'][0]['title'].replace('&', ' ')
+        searchtext = '"%s %s"' % (title, movie['library']['year'])
+
         arguments = tryUrlencode({
-            'searchtext': movie['library']['titles'][0]['title'].replace('&', ' '),
+            'searchtext': searchtext,
             'uid': self.conf('userid'),
             'key': self.conf('api_key'),
             'age': Env.setting('retention', section = 'nzb'),
-
         })
 
         # check for english_only
