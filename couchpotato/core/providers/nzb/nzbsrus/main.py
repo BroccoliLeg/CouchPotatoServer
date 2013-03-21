@@ -25,7 +25,7 @@ class Nzbsrus(NZBProvider, RSS):
 
         cat_id_string = '&'.join(['c%s=1' % x for x in self.getCatId(quality.get('identifier'))])
         title = movie['library']['titles'][0]['title'].replace('&', ' ')
-        searchtext = '"%s %s"' % (title, movie['library']['year'])
+        searchtext = '%s %s' % (title, movie['library']['year'])
 
         arguments = tryUrlencode({
             'searchtext': searchtext,
